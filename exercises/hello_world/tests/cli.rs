@@ -1,13 +1,10 @@
-use std::process::Command;
+use assert_cmd::Command;
 
 #[test]
-fn works() {
-    assert!(true)
-}
+fn works() {}
 
 #[test]
 fn runs() {
-    let mut cmd = Command::new("hello");
-    let res = cmd.output();
-    assert!(res.is_ok())
+    let mut cmd = Command::cargo_bin("hello_world").unwrap();
+    cmd.assert().success();
 }
